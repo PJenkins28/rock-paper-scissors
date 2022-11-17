@@ -1,3 +1,8 @@
+let computerChoice;
+let playerChoice;
+let computerScore = 0;
+let playerScore = 0;
+
 function getComputerChoice() {
 
 }
@@ -19,5 +24,5 @@ function displayWinner() {
 }
 
 function game() {
-    
+
 }
