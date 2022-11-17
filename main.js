@@ -16,11 +16,41 @@ function getPlayerChoice() {
 }
 
 function playRound() {
+    computerChoice = getComputerChoice();
+    playerChoice = getPlayerChoice();
 
+    if (computerChoice === playerChoice) {
+        console.log("It's a tie! You both selected " + computerChoice);
+    }
+        else if (computerChoice == 'rock' && playerChoice == 'paper') {
+            ++playerScore;
+            console.log("Nice one!! You win this round - paper beats rock");
+        }
+        else if (computerChoice == 'rock' && playerChoice == 'scissors') {
+            ++computerScore;
+            console.log("You lose - rock beats scissors every time </3");
+        }
+        else if (computerChoice == 'paper' && playerChoice == 'scissors') {
+            ++playerScore;
+            console.log("Shred it uppp! You win this round - scissors beats paper");
+        }
+        else if (computerChoice == 'paper' && playerChoice == 'rock') {
+            ++computerScore;
+            console.log("Darn it... You lose this round - paper beats rock");
+        }
+        else if (computerChoice == 'scissors' && playerChoice == 'rock') {
+            ++playerScore;
+            console.log("Great choice! You win - rock beats scissors");
+        }
+        else if (computerChoice == 'scissors' && playerChoice == 'paper') {
+            ++computerScore;
+            console.log("Close but no cigar... You lose - scissors beats paper");
+        }
 }
 
 function resetScores() {
-
+    computerScore = 0;
+    playerScore = 0;
 }
 
 function displayWinner() {
