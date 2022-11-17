@@ -53,9 +53,15 @@ function resetScores() {
     playerScore = 0;
 }
 
-function displayWinner() {
-
+function determineWinner() {
+    if (playerScore < computerScore) 
+        console.log("You lose. Try your luck agains the machine again.");
+    else if (playerScore > computerScore)
+        console.log("You won! Humans > computers");
+    else
+        console.log("It's a tie... Play again if you dare >:)");
 }
+
 
 function game() {
 
