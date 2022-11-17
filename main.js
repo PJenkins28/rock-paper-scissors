@@ -60,9 +60,17 @@ function determineWinner() {
         console.log("You won! Humans > computers");
     else
         console.log("It's a tie... Play again if you dare >:)");
+    
 }
 
-
+function displayScores() {
+    console.log("Final Scores:\nYou: " + playerScore + "\nComputer: " + computerScore);
+}
 function game() {
-
+    resetScores();
+    for (let i = 0; i < 5; i++) {
+        playRound();
+    }
+    determineWinner();
+    displayScores();
 }
