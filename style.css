@@ -1,0 +1,9 @@
+.img-container {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+img {
+    width: 400px;
+    height: auto;
+}
