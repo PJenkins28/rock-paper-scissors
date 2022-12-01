@@ -15,11 +15,15 @@
 .rps {
     font-family: 'Georgia', 'serif';
 }
-
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .img-container {
     display: flex; 
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     padding: 50px;
 }
 img {
@@ -27,4 +31,20 @@ img {
     height: auto;
     padding: 30px;
     
+}
+
+.picture {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+
+}
+/*.button-container {
+    display: flex;
+    justify-content: space-between;
+   
+
+}*/
+.button {
+    width: 100px;
 }
