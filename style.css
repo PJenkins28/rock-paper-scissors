@@ -1,13 +1,17 @@
+body {
+    margin: 0;
+    background-color: lavender;
+}
 .title-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 50px;
-    padding-bottom: 100px;
+    padding-bottom: 70px;
     color: rgb(48, 43, 43);
 }
 
-.title {
+.title,.results {
     font-size: 50px;
     font-family: 'impact', 'fantasy';
 }
@@ -27,7 +31,7 @@
     padding: 50px;
 }
 img {
-    width: 400px;
+    width: 320px;
     height: auto;
     padding: 30px;
     
@@ -39,12 +43,31 @@ img {
     align-items: center
 
 }
-/*.button-container {
-    display: flex;
-    justify-content: space-between;
-   
 
-}*/
 .button {
-    width: 100px;
+    width: 150px;
+    margin: 20px;
+    padding: 0;
+    height: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    background-color:rgba(14, 167, 152, 0.453);
+    opacity: 50;
+    border: solid rgb(75, 75, 3);
+    border-radius: 6px;
+    transition: 150ms;
+}
+
+.button:hover {
+    font-size: 1.5rem;
+    width: 170px;
+    transform: scale(1);
+}
+
+.results {
+    display: flex;
+    gap: 4em;
+    margin: 0px;
+    color: rgb(48, 43, 43);
 }
