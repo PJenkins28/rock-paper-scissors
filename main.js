@@ -8,69 +8,106 @@ function getComputerChoice() {
     let selection = choiceArray[Math.floor(Math.random() * choiceArray.length)];
     return selection;
 }
-
-function getPlayerChoice() {
-    let input = prompt("Please enter Rock, Paper, or Scissors to play!");
-    let lowerInput = input.toLowerCase();
-    return lowerInput;
-}
+const results = document.getElementById('results');
 
 function playRound() {
-    computerChoice = getComputerChoice();
-    playerChoice = getPlayerChoice();
 
     if (computerChoice === playerChoice) {
-        console.log("It's a tie! You both selected " + computerChoice);
+        results.textContent = `It's a tie! You both selected  ${computerChoice}`
+        updateScores();
     }
         else if (computerChoice == 'rock' && playerChoice == 'paper') {
             ++playerScore;
-            console.log("Nice one!! You win this round - paper beats rock");
+            results.textContent = `Nice one!! You win this round - paper beats rock`
+            updateScores();
         }
         else if (computerChoice == 'rock' && playerChoice == 'scissors') {
             ++computerScore;
-            console.log("You lose - rock beats scissors every time </3");
+            results.textContent = `You lose this round - rock beats scissors every time </3`
+            updateScores();
         }
         else if (computerChoice == 'paper' && playerChoice == 'scissors') {
             ++playerScore;
-            console.log("Shred it uppp! You win this round - scissors beats paper");
+            results.textContent = `Shred it uppp! You win this round - scissors beats paper`
+            updateScores();
         }
         else if (computerChoice == 'paper' && playerChoice == 'rock') {
             ++computerScore;
-            console.log("Darn it... You lose this round - paper beats rock");
+            results.textContent = `Darn it... You lose this round - paper beats rock`
+            updateScores();
         }
         else if (computerChoice == 'scissors' && playerChoice == 'rock') {
             ++playerScore;
-            console.log("Great choice! You win - rock beats scissors");
+            results.textContent = `Great choice! You win this round - rock beats scissors`
+            updateScores();
         }
         else if (computerChoice == 'scissors' && playerChoice == 'paper') {
             ++computerScore;
-            console.log("Close but no cigar... You lose - scissors beats paper");
+            results.textContent = `Close but no cigar... You lose this round - scissors beats paper`
+            updateScores();
         }
 }
 
+//Score & Result Updating
+const humanScore = document.getElementById('human-score');
+const compScore = document.getElementById('comp-score');
+
+
+function updateScores() {
+    humanScore.textContent = `Human: ${playerScore}`
+    compScore.textContent = `Computer: ${computerScore}`
+}
 function resetScores() {
     computerScore = 0;
     playerScore = 0;
 }
 
+/*results(roundMessage) {
+    return
+}*/
 function determineWinner() {
     if (playerScore < computerScore) 
-        console.log("You lose. Try your luck agains the machine again.");
+        alert("You lose. Try your luck agains the machine again.");
     else if (playerScore > computerScore)
-        console.log("You won! Humans > computers");
+        alert("You won! Humans > computers");
     else
-        console.log("It's a tie... Play again if you dare >:)");
+        alert("It's a tie... Play again if you dare >:)");
     
 }
 
 function displayScores() {
-    console.log("Final Scores:\nYou: " + playerScore + "\nComputer: " + computerScore);
+    alert("Final Scores:\nYou: " + playerScore + "\nComputer: " + computerScore);
 }
-function game() {
+/*function game() {
     resetScores();
     for (let i = 0; i < 5; i++) {
         playRound();
     }
     determineWinner();
     displayScores();
-}
+}*/
+
+// Rock Button Event Listener
+const rockBtn = document.getElementById('rockBtn');
+rockBtn.addEventListener('click', () => {
+    playerChoice = rockBtn.textContent.toLowerCase();
+    computerChoice = getComputerChoice();
+    playRound();
+});
+
+//Paper Button Event Listener
+const paperBtn = document.getElementById('paperBtn');
+paperBtn.addEventListener('click', () => {
+    playerChoice = paperBtn.textContent.toLowerCase();
+    computerChoice = getComputerChoice();
+    playRound();
+});
+
+//Scissors Button Event Listener
+
+const scissorsBtn = document.getElementById('scissorsBtn');
+scissorsBtn.addEventListener('click', () => {
+    playerChoice = scissorsBtn.textContent.toLowerCase();
+    computerChoice = getComputerChoice();
+    playRound();
+})

@@ -2,27 +2,40 @@ body {
     margin: 0;
     background-color: lavender;
 }
-.title-container {
+.title-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 50px;
-    padding-bottom: 70px;
+    padding-bottom: 30px;
     color: rgb(48, 43, 43);
 }
 
-.title,.results {
-    font-size: 50px;
+.title {
+    font-size: 60px;
     font-family: 'impact', 'fantasy';
 }
 
-.rps {
+.rps, #results {
     font-family: 'Georgia', 'serif';
 }
 .content-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    font-family: 'impact', 'fantasy';
+    gap: 1rem;
+    color: rgb(48, 43, 43);
+}
+#scores {
+    display: flex;
+    gap: 2rem;
+    font-size: 50px;
+}
+#results {
+    font-weight: bold;
+    font-size: 20px;
 }
 .img-container {
     display: flex; 
@@ -65,8 +78,7 @@ img {
     transform: scale(1);
 }
 
-.results {
-    display: flex;
+#score {
     gap: 4em;
     margin: 0px;
     color: rgb(48, 43, 43);
