@@ -11,40 +11,38 @@ function getComputerChoice() {
 const results = document.getElementById('results');
 
 function playRound() {
-
     if (computerChoice === playerChoice) {
         results.textContent = `It's a tie! You both selected  ${computerChoice}`
-        updateScores();
+     
     }
         else if (computerChoice == 'rock' && playerChoice == 'paper') {
             ++playerScore;
             results.textContent = `Nice one!! You win this round - paper beats rock`
-            updateScores();
+          
         }
         else if (computerChoice == 'rock' && playerChoice == 'scissors') {
             ++computerScore;
             results.textContent = `You lose this round - rock beats scissors every time </3`
-            updateScores();
+       
         }
         else if (computerChoice == 'paper' && playerChoice == 'scissors') {
             ++playerScore;
             results.textContent = `Shred it uppp! You win this round - scissors beats paper`
-            updateScores();
+           
         }
         else if (computerChoice == 'paper' && playerChoice == 'rock') {
             ++computerScore;
             results.textContent = `Darn it... You lose this round - paper beats rock`
-            updateScores();
+          
         }
         else if (computerChoice == 'scissors' && playerChoice == 'rock') {
             ++playerScore;
             results.textContent = `Great choice! You win this round - rock beats scissors`
-            updateScores();
         }
         else if (computerChoice == 'scissors' && playerChoice == 'paper') {
             ++computerScore;
             results.textContent = `Close but no cigar... You lose this round - scissors beats paper`
-            updateScores();
+
         }
 }
 
@@ -54,45 +52,44 @@ const compScore = document.getElementById('comp-score');
 
 
 function updateScores() {
+    checkScore();
     humanScore.textContent = `Human: ${playerScore}`
     compScore.textContent = `Computer: ${computerScore}`
+    
 }
 function resetScores() {
     computerScore = 0;
     playerScore = 0;
 }
 
-/*results(roundMessage) {
-    return
-}*/
-function determineWinner() {
-    if (playerScore < computerScore) 
-        alert("You lose. Try your luck agains the machine again.");
-    else if (playerScore > computerScore)
-        alert("You won! Humans > computers");
-    else
-        alert("It's a tie... Play again if you dare >:)");
-    
-}
-
-function displayScores() {
-    alert("Final Scores:\nYou: " + playerScore + "\nComputer: " + computerScore);
-}
-/*function game() {
-    resetScores();
-    for (let i = 0; i < 5; i++) {
+function checkScore() {
+    if(playerScore < 5 && computerScore < 5 ) {
         playRound();
     }
-    determineWinner();
-    displayScores();
-}*/
+    else {
+        determineWinner();
+        resetScores();
+    }
+}
+function determineWinner() {
+    //updateScores();
+    if (computerScore === 5) 
+        results.textContent = `You lose. Try your luck against the machine again`
+    else if (playerScore === 5)
+        results.textContent = `You won! Humans > computers`
+    else
+        results.textContent = `It's a tie... Play again if you dare >:)`
+    
+    
+}
 
 // Rock Button Event Listener
 const rockBtn = document.getElementById('rockBtn');
 rockBtn.addEventListener('click', () => {
     playerChoice = rockBtn.textContent.toLowerCase();
     computerChoice = getComputerChoice();
-    playRound();
+    updateScores();
+    
 });
 
 //Paper Button Event Listener
@@ -100,7 +97,7 @@ const paperBtn = document.getElementById('paperBtn');
 paperBtn.addEventListener('click', () => {
     playerChoice = paperBtn.textContent.toLowerCase();
     computerChoice = getComputerChoice();
-    playRound();
+    updateScores();
 });
 
 //Scissors Button Event Listener
@@ -109,5 +106,5 @@ const scissorsBtn = document.getElementById('scissorsBtn');
 scissorsBtn.addEventListener('click', () => {
     playerChoice = scissorsBtn.textContent.toLowerCase();
     computerChoice = getComputerChoice();
-    playRound();
-})
+    updateScores();
+});
