@@ -10,7 +10,6 @@ body {
     padding-bottom: 30px;
     color: rgb(48, 43, 43);
 }
-
 .title {
     font-size: 60px;
     font-family: 'impact', 'fantasy';
@@ -30,8 +29,10 @@ body {
 }
 #scores {
     display: flex;
-    gap: 2rem;
     font-size: 50px;
+    gap: 2em;
+    margin: 0px;
+    color: rgb(48, 43, 43);
 }
 #results {
     font-weight: bold;
@@ -39,7 +40,7 @@ body {
 }
 .img-container {
     display: flex; 
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-end;
     padding: 50px;
 }
@@ -47,39 +48,26 @@ img {
     width: 320px;
     height: auto;
     padding: 30px;
-    
 }
-
 .picture {
     display: flex;
     flex-direction: column;
-    align-items: center
-
+    align-items: center;
 }
-
 .button {
     width: 150px;
     margin: 20px;
-    padding: 0;
     height: 50px;
     font-size: 1rem;
     font-weight: bold;
     text-align: center;
     background-color:rgba(14, 167, 152, 0.453);
-    opacity: 50;
-    border: solid rgb(75, 75, 3);
+    border: solid rgb(3, 75, 38);
     border-radius: 6px;
     transition: 150ms;
 }
-
 .button:hover {
     font-size: 1.5rem;
     width: 170px;
     transform: scale(1);
-}
-
-#score {
-    gap: 4em;
-    margin: 0px;
-    color: rgb(48, 43, 43);
 }
